@@ -397,6 +397,7 @@
         display: none;
         height: 100vh;
         width: 100vw;
+        margin: 0;
         position: absolute;
         top: 0;
         right: 0;
@@ -427,7 +428,7 @@
     }
     #side{
         height: 30vh;
-        width: 8vw;
+        width: 7vw;
         padding: 0 5px;
         position: fixed;
         top: 35vh;
@@ -440,10 +441,10 @@
     }
     #side2{
         display: none;
-        height: 34vh;
-        width: 5vw;
+        height: 30vh;
+        width: 7vw;
         position: fixed;
-        top: 32vh;
+        top: 35vh;
         right: 0;
         font-family: ryakuji;
         line-height: 150%;
