@@ -1,0 +1,781 @@
+@font-face{
+	font-family: 'ryakuji';
+	src: url(font/ryakuji-few-dot-12.ttf);
+}
+@media screen and (min-width: 501px){
+    body{
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: #000;
+        user-select: none;
+    }
+    #bg{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        background-color: #00000000;
+        background-size: 60vh;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+    .bg{
+        animation: eMove 5s infinite;
+    }
+    button{
+        background-color: #00000080;
+        outline: 0;
+        border: solid 3px #fff;
+        font-size: 23px;
+        color: #fff;
+        padding: 10px 0;
+        z-index: 2;
+    }
+    .box{
+        width: 80vw;
+        font-family: ryakuji;
+        line-height: 150%;
+        border-radius: 10px;
+    }
+    #side{
+        height: 32vh;
+        width: 5vw;
+        position: fixed;
+        top: 34vh;
+        right: 0;
+        font-family: ryakuji;
+        line-height: 150%;
+        border-radius: 10px 0 0 10px;
+        border: solid #fff;
+        border-width: 3px 0 3px 3px;
+    }
+    #side2{
+        display: none;
+        height: 32vh;
+        width: 5vw;
+        position: fixed;
+        top: 34vh;
+        right: 0;
+        font-family: ryakuji;
+        line-height: 150%;
+        border-radius: 10px 0 0 10px;
+        border: solid #fff;
+        border-width: 3px 0 3px 3px;
+    }
+    #start{
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+    .title{
+        font-size: 42px;
+        font-weight: bold;
+    }
+    #clear{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        background-color: #000000c0;
+        font-size: 20px;
+        top: 0;
+        left: 0;
+        border: 0;
+        z-index: 999;
+        animation: fadeIn 1s;
+    }
+    #guardphase{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        background-color: #000000c0;
+        font-size: 65px;
+        color: #fff;
+        top: 0;
+        left: 0;
+        border: 0;
+        z-index: 999;
+        animation: slideIn 2s;
+        font-family: ryakuji;
+    }
+    .hyper{
+        font-size: 24px;
+    }
+    .hyper2{
+        font-size: 24px;
+        color: rgb(255, 85, 85);
+    }
+    #stop{
+        display: none;
+        outline: 0;
+        border: 0;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+        position: fixed;
+        background-color: #00000000;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    #damege{
+        display: none;
+        outline: 0;
+        border: 0;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+        position: fixed;
+        background-color: #00000000;
+        font-size: 103px;
+        font-weight: bold;
+        text-shadow: 3px 3px #fff, -3px 3px #fff, 3px -3px #fff, -3px -3px #fff;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        animation: fadeOut 1s;
+        font-family: ryakuji;
+    }
+    #enemy{
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 10vw;
+    }
+    #me{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    #command{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    #commandA{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    #commandM{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    #commandI{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    #commandG{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    #message{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
+    .gauge{
+        display: none;
+        height: 120px;
+        width: 8vw;
+        padding: 0;
+        border: solid 3px #fff;
+    }
+    #gauge{
+        display: none;
+        position: fixed;
+        height: 120px;
+        top: 10px;
+        padding: 0;
+        left: 10vw;
+    }
+    #gauge1{
+        position: fixed;
+        top: 10px;
+        left: 10vw;
+        border-radius: 10px 0 0 10px;
+        background-color: #00eeff;
+    }
+    #gauge2{
+        position: fixed;
+        top: 10px;
+        left: 18vw;
+        background-color: #00ffae;
+    }
+    #gauge3{
+        position: fixed;
+        top: 10px;
+        left: 26vw;
+        background-color: #c8ff00;
+    }
+    #gauge4{
+        position: fixed;
+        top: 10px;
+        left: 34vw;
+        background-color: #91ff00;
+    }
+    #gauge5{
+        position: fixed;
+        top: 10px;
+        left: 42vw;
+        background-color: #fffb00;
+    }
+    #gauge6{
+        position: fixed;
+        top: 10px;
+        left: 50vw;
+        background-color: #ffe600;
+    }
+    #gauge7{
+        position: fixed;
+        top: 10px;
+        left: 58vw;
+        background-color: #ffbf00;
+    }
+    #gauge8{
+        position: fixed;
+        top: 10px;
+        left: 66vw;
+        background-color: #ff7b00;
+    }
+    #gauge9{
+        position: fixed;
+        top: 10px;
+        left: 74vw;
+        background-color: #ff6200;
+    }
+    #gauge10{
+        position: fixed;
+        top: 10px;
+        left: 82vw;
+        border-radius: 0 10px 10px 0;
+        background-color: #ff0000;
+    }
+    .tennmetsu{
+        animation: tennmetsu 2.5s infinite;
+    }
+    .redAnimate{
+        animation: bgChangeRed 3.5s infinite;
+    }
+    .blueAnimate{
+        animation: bgChangeBlue 3.5s infinite;
+    }
+    .rainbowAnimate{
+        background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783,#e60000) 0 / 400%;
+        animation: rainbow 5s linear infinite;
+    }
+    .rainbowAnimate::after{
+        content: "";
+        animation: rainbowStart 1s;
+        background-color: #00000040;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    @keyframes slideIn{
+        0%{
+            opacity: 0;
+        }
+        25%{
+            opacity: 1;
+        }
+        75%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes fadeIn{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes fadeOut{
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes tennmetsu{
+        0%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes bgChangeRed{
+        0%{
+            background-color: #000;
+        }
+        50%{
+            background-color: #f00;
+        }
+        100%{
+            background-color: #000;
+        }
+    }
+    @keyframes bgChangeBlue{
+        0%{
+            background-color: #000;
+        }
+        50%{
+            background-color: #00f;
+        }
+        100%{
+            background-color: #000;
+        }
+    }
+    @keyframes rainbow{
+        100%{
+            background-position: 400%;
+        }
+    }
+    @keyframes rainbowStart{
+        0%{
+            background-color: #000000ff;
+        }
+        10%{
+            background-color: #000000ff;
+        }
+        100%{
+            background-color: #00000040;
+        }
+    } 
+    @keyframes eMove{
+        0%{
+            transform: translateY(0);
+        }
+        50%{
+            transform: translateY(-50px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px){
+    body{
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: #000;
+    }
+    #bg{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        background-color: #00000000;
+        background-size: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+    .bg{
+        animation: eMove 5s infinite;
+    }
+    button{
+        background-color: #00000080;
+        outline: 0;
+        border: solid 3px #fff;
+        font-size: 18px;
+        color: #fff;
+        padding: 10px 0;
+        z-index: 2;
+    }
+    .box{
+        width: 90vw;
+        font-family: ryakuji;
+        line-height: 150%;
+        border-radius: 10px;
+    }
+    #side{
+        height: 30vh;
+        width: 8vw;
+        padding: 0 5px;
+        position: fixed;
+        top: 35vh;
+        right: 0;
+        font-family: ryakuji;
+        line-height: 150%;
+        border-radius: 10px 0 0 10px;
+        border: solid #fff;
+        border-width: 3px 0 3px 3px;
+    }
+    #side2{
+        display: none;
+        height: 34vh;
+        width: 5vw;
+        position: fixed;
+        top: 32vh;
+        right: 0;
+        font-family: ryakuji;
+        line-height: 150%;
+        border-radius: 10px 0 0 10px;
+        border: solid #fff;
+        border-width: 3px 0 3px 3px;
+    }
+    #start{
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+    .title{
+        width: 100vw;
+        font-size: 28px;
+        font-weight: bold;
+        position: fixed;
+        top: 6vh;
+        left: 0;
+    }
+    #load{
+        width: 100vw;
+        font-size: 17px;
+        position: fixed;
+        bottom: 6vh;
+        left: 0;
+    }
+    #clear{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        background-color: #000000c0;
+        font-size: 14px;
+        top: 0;
+        left: 0;
+        border: 0;
+        z-index: 999;
+        animation: fadeIn 1s;
+    }
+    #guardphase{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        background-color: #000000c0;
+        font-size: 40px;
+        color: #fff;
+        top: 0;
+        left: 0;
+        border: 0;
+        z-index: 999;
+        animation: slideIn 2s;
+        font-family: ryakuji;
+    }
+    .hyper{
+        font-size: 13px;
+    }
+    .hyper2{
+        font-size: 13px;
+        color:  rgb(255, 85, 85);
+    }
+    #stop{
+        display: none;
+        outline: 0;
+        border: 0;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+        position: fixed;
+        background-color: #00000000;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    #damege{
+        display: none;
+        outline: 0;
+        border: 0;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+        position: fixed;
+        background-color: #00000000;
+        font-size: 60px;
+        font-weight: bold;
+        text-shadow: 2px 2px #fff, -2px 2px #fff, 2px -2px #fff, -2px -2px #fff;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        animation: fadeOut 1s;
+        font-family: ryakuji;
+    }
+    #enemy{
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 5vw;
+    }
+    #me{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    #command{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    #commandA{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    #commandM{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    #commandI{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    #commandG{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    #message{
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 5vw;
+    }
+    .gauge{
+        display: none;
+        height: 100px;
+        width: 9vw;
+        padding: 0;
+        border: solid 3px #fff;
+    }
+    #gauge{
+        display: none;
+        position: fixed;
+        height: 100px;
+        top: 10px;
+        padding: 0;
+        left: 5vw;
+    }
+    #gauge1{
+        position: fixed;
+        top: 10px;
+        left: 5vw;
+        border-radius: 10px 0 0 10px;
+        background-color: #00eeff;
+    }
+    #gauge2{
+        position: fixed;
+        top: 10px;
+        left: 14vw;
+        background-color: #00ffae;
+    }
+    #gauge3{
+        position: fixed;
+        top: 10px;
+        left: 23vw;
+        background-color: #c8ff00;
+    }
+    #gauge4{
+        position: fixed;
+        top: 10px;
+        left: 32vw;
+        background-color: #91ff00;
+    }
+    #gauge5{
+        position: fixed;
+        top: 10px;
+        left: 41vw;
+        background-color: #fffb00;
+    }
+    #gauge6{
+        position: fixed;
+        top: 10px;
+        left: 50vw;
+        background-color: #ffe600;
+    }
+    #gauge7{
+        position: fixed;
+        top: 10px;
+        left: 59vw;
+        background-color: #ffbf00;
+    }
+    #gauge8{
+        position: fixed;
+        top: 10px;
+        left: 68vw;
+        background-color: #ff7b00;
+    }
+    #gauge9{
+        position: fixed;
+        top: 10px;
+        left: 77vw;
+        background-color: #ff6200;
+    }
+    #gauge10{
+        position: fixed;
+        top: 10px;
+        left: 86vw;
+        border-radius: 0 10px 10px 0;
+        background-color: #ff0000;
+    }
+    .tennmetsu{
+        animation: tennmetsu 2.5s infinite;
+    }
+    .redAnimate{
+        animation: bgChangeRed 3.5s infinite;
+    }
+    .blueAnimate{
+        animation: bgChangeBlue 3.5s infinite;
+    }
+    .rainbowAnimate{
+        background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783,#e60000) 0 / 400%;
+        animation: rainbow 5s linear infinite;
+    }
+    .rainbowAnimate::after{
+        content: "";
+        animation: rainbowStart 1s;
+        background-color: #00000040;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    @keyframes slideIn{
+        0%{
+            opacity: 0;
+        }
+        25%{
+            opacity: 1;
+        }
+        75%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes fadeIn{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes fadeOut{
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes tennmetsu{
+        0%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes bgChangeRed{
+        0%{
+            background-color: #000;
+        }
+        50%{
+            background-color: #f00;
+        }
+        100%{
+            background-color: #000;
+        }
+    }
+    @keyframes bgChangeBlue{
+        0%{
+            background-color: #000;
+        }
+        50%{
+            background-color: #00f;
+        }
+        100%{
+            background-color: #000;
+        }
+    }
+    @keyframes rainbow{
+        100%{
+            background-position: 400%;
+        }
+    }
+    @keyframes rainbowStart{
+        0%{
+            background-color: #000000ff;
+        }
+        10%{
+            background-color: #000000ff;
+        }
+        100%{
+            background-color: #00000040;
+        }
+    } 
+    @keyframes eMove{
+        0%{
+            transform: translateY(0);
+        }
+        50%{
+            transform: translateY(-50px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+}
