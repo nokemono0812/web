@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RPG</title>
+</head>
+<body id="body">
+    <script type="text/javascript" src="index.js"></script>
+    <button id="enemy" class="box"><font id="ename"></font> Lv.<font id="elevel"></font><br>HP: <font id="ehp"></font>/<font id="ehpmax"></font><br>MP: <font id="emp"></font>/<font id="empmax"></font></button>
+    <button id="me" class="box"><font id="mname"></font> Lv.<font id="mlevel"></font><br>HP: <font id="mhp"></font>/<font id="mhpmax"></font><br>MP: <font id="mmp"></font>/<font id="mmpmax"></font><br><font id="yazirushi1" class="tennmetsu">＞ </font><font onclick="command()">コマンド</font><font id="yazirushi2" class="tennmetsu"> ＜</font></button>
+    <button id="command" class="box">
+        <font onclick="attack()">こうげき</font>
+        <br><font onclick="magic()">まほう</font>
+        <br><font onclick="item()">アイテム</font>
+        <br><font onclick="guard()">ガード</font>
+        <br><font onclick="back1()">もどる</font>
+    </button>
+    <button id="commandA" class="box">
+        <font onclick="attack1()">投げナイフ</font>　<font onclick="explanationA1()">HELP</font>
+        <br><font onclick="attack2()">たて斬り</font>　<font onclick="explanationA2()">HELP</font>
+        <br><font onclick="back2()">もどる</font>
+    </button>
+    <button id="commandM" class="box">
+        <font onclick="magic1()">ライター</font>　<font onclick="explanationM1()">HELP</font>
+        <br><font onclick="magic2()">みずバケツ</font>　<font onclick="explanationM2()">HELP</font>
+        <br><font onclick="magic3()">ゆきだま</font>　<font onclick="explanationM3()">HELP</font>
+        <br><font onclick="magic4()">レールガン</font>　<font onclick="explanationM4()">HELP</font>
+        <br><font onclick="magic5()">むてき</font>　<font onclick="explanationM5()">HELP</font>
+        <br><font onclick="magic6()">ヒアル</font>　<font onclick="explanationM6()">HELP</font>
+        <br><font onclick="back3()">もどる</font>
+    </button>
+    <button id="commandI" class="box">
+        <font onclick="item1()">回復薬×<font id="item1"></font></font>　<font onclick="explanationI1()">HELP</font>
+        <br><font onclick="item2()">しあわせの種×<font id="item2"></font></font>　<font onclick="explanationI2()">HELP</font>
+        <br><font onclick="item3()">みずの羽衣×<font id="item3"></font></font>　<font onclick="explanationI3()">HELP</font>
+        <br><font onclick="item4()">こおりの羽衣×<font id="item4"></font></font>　<font onclick="explanationI4()">HELP</font>
+        <br><font onclick="back4()">もどる</font>
+    </button>
+    <button id="commandG" class="box">
+        <font onclick="guard1()">てっぺき</font>　<font onclick="explanationG1()">HELP</font>
+        <br><font onclick="back5()">もどる</font>
+    </button>
+    <button id="message" class="box"></button>
+    <button id="start" onclick="gameTaiken()"><font class="title">RPG風のやつ｜体験版</font><br><br><font id="load" class="tennmetsu">ロード中...</font></button>
+    <button id="clear" onclick="oto()">これにて体験版は終了です。<br><br>遊んでいただきありがとうございました！</button>
+    <button id="guardphase"><font id="guardphaseText">ガードフェーズ</font></button>
+    <button id="stop" onclick="stop()"></button>
+    <button id="gauge" class="box"></button>
+    <button id="damege"></button>
+    <button id="side" onclick="fullScreen()">F<br>U<br>L<br>L</button>
+    <button id="side2" onclick="exitFullScreen()">E<br>X<br>I<br>T</button>
+    <button id="gauge1" class="gauge"></button>
+    <button id="gauge2" class="gauge"></button>
+    <button id="gauge3" class="gauge"></button>
+    <button id="gauge4" class="gauge"></button>
+    <button id="gauge5" class="gauge"></button>
+    <button id="gauge6" class="gauge"></button>
+    <button id="gauge7" class="gauge"></button>
+    <button id="gauge8" class="gauge"></button>
+    <button id="gauge9" class="gauge"></button>
+    <button id="gauge10" class="gauge"></button>
+    <div id="bg"></div>
+    <div id="cover"></div>
+    <audio src="audio/hardoff.mp3" type="audio/mp3" id="audio0" preload="auto" loop></audio>
+    <audio src="audio/軽いキック2.mp3" type="audio/mp3" id="audio1" preload="auto"></audio>
+    <audio src="audio/回復魔法1.mp3" type="audio/mp3" id="audio2" preload="auto"></audio>
+    <audio src="audio/回復魔法3.mp3" type="audio/mp3" id="audio3" preload="auto"></audio>
+    <audio src="audio/剣で斬る1.mp3" type="audio/mp3" id="audio4" preload="auto"></audio>
+    <audio src="audio/打撃6.mp3" type="audio/mp3" id="audio5" preload="auto"></audio>
+    <audio src="audio/弓矢を放つ.mp3" type="audio/mp3" id="audio6" preload="auto"></audio>
+    <audio src="audio/パワーチャージ.mp3" type="audio/mp3" id="audio7" preload="auto"></audio>
+    <audio src="audio/居合抜き1.mp3" type="audio/mp3" id="audio8" preload="auto"></audio>
+    <audio src="audio/毒魔法2.mp3" type="audio/mp3" id="audio9" preload="auto"></audio>
+    <audio src="audio/氷魔法で凍結.mp3" type="audio/mp3" id="audio10" preload="auto"></audio>
+    <audio src="audio/火炎魔法2.mp3" type="audio/mp3" id="audio11" preload="auto"></audio>
+    <audio src="audio/雷魔法2.mp3" type="audio/mp3" id="audio12" preload="auto"></audio>
+    <audio src="audio/ビームガン.mp3" type="audio/mp3" id="audio13" preload="auto"></audio>
+    <audio src="audio/ステータス上昇魔法2.mp3" type="audio/mp3" id="audio14" preload="auto"></audio>
+    <audio src="audio/魔法反射.mp3" type="audio/mp3" id="audio15" preload="auto"></audio>
+    <audio src="audio/石が砕ける.mp3" type="audio/mp3" id="audio16" preload="auto"></audio>
+    <audio src="audio/クリック.mp3" type="audio/mp3" id="audio17" preload="auto"></audio>
+    <audio src="audio/ゲームスタート.mp3" type="audio/mp3" id="audio18" preload="auto"></audio>
+    <audio src="audio/技決定.mp3" type="audio/mp3" id="audio19" preload="auto"></audio>
+    <audio src="audio/クリティカル.mp3" type="audio/mp3" id="audio20" preload="auto"></audio>
+    <audio src="audio/ミス.mp3" type="audio/mp3" id="audio21" preload="auto"></audio>
+    <audio src="audio/ドラゴンの鳴き声1.mp3" type="audio/mp3" id="audio22" preload="auto"></audio>
+    <audio src="audio/ビーム砲3.mp3" type="audio/mp3" id="audio23" preload="auto"></audio>
+    <audio src="audio/レベルアップ、回復.mp3" type="audio/mp3" id="audio24" preload="auto"></audio>
+    <audio src="audio/死後の世界.mp3" type="audio/mp3" id="audio101" preload="auto" loop></audio>
+    <audio src="audio/不気味なピアノの音.mp3" type="audio/mp3" id="audio200" preload="auto"></audio>
+    <audio src="audio/異次元空間.mp3" type="audio/mp3" id="audio100" preload="auto" loop></audio>
+    <audio src="audio/重力魔法1.mp3" type="audio/mp3" id="audio201" preload="auto"></audio>
+</body>
+</html>
